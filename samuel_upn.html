@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <meta name="description" content="Aplikasi Monitoring Target Penjualan Harian untuk UMKM">
+    <title>Dashboard Penjualan Harian | UMKM Monitor</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header Section -->
+        <header class="header">
+            <div class="header-content">
+                <h1>
+                    <span class="icon">📊</span>
+                    Monitoring Target Penjualan Harian
+                </h1>
+                <p>Kelola dan pantau pencapaian target penjualan barang Anda dengan mudah</p>
+            </div>
+        </header>
+
+        <!-- Form Section untuk Menambah Barang -->
+        <section class="form-section">
+            <div class="card">
+                <h2>
+                    <span class="icon">➕</span>
+                    Tambah Barang Baru
+                </h2>
+                <form id="productForm">
+                    <div class="form-group">
+                        <label for="productName">Nama Barang</label>
+                        <input type="text" id="productName" placeholder="Contoh: Kopi Arabica" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="dailyTarget">Target Penjualan Harian (Unit)</label>
+                        <input type="number" id="dailyTarget" placeholder="Contoh: 100" min="1" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">
+                        <span class="icon">💾</span>
+                        Tambah Barang
+                    </button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Dashboard Section - Daftar Barang -->
+        <section class="dashboard-section">
+            <div class="dashboard-header">
+                <h2>
+                    <span class="icon">📦</span>
+                    Daftar Barang & Monitoring
+                </h2>
+                <button id="resetAllBtn" class="btn btn-danger">
+                    <span class="icon">🔄</span>
+                    Reset Semua Penjualan
+                </button>
+            </div>
+            <div id="productsContainer" class="products-grid">
+                <!-- Product cards will be dynamically inserted here -->
+                <div class="empty-state">
+                    <div class="empty-icon">📭</div>
+                    <h3>Belum Ada Barang</h3>
+                    <p>Silakan tambah barang terlebih dahulu menggunakan form di atas</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Riwayat Penjualan Section (Opsional) -->
+        <section class="history-section">
+            <div class="card">
+                <h2>
+                    <span class="icon">📜</span>
+                    Riwayat Aktivitas
+                </h2>
+                <div id="historyList" class="history-list">
+                    <div class="empty-history">Belum ada aktivitas</div>
+                </div>
+                <button id="clearHistoryBtn" class="btn btn-secondary" style="margin-top: 15px;">
+                    Hapus Riwayat
+                </button>
+            </div>
+        </section>
+    </div>
+
+    <!-- Notification Toast -->
+    <div id="notificationToast" class="toast-notification"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
